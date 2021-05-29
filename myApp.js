@@ -22,14 +22,10 @@ app.get("/json", (req, res) => {
     }
 });
 
-// app.get("/json", (req, res) => {
-//     var response = res.json({"message": "Hello json"});
-//     if (process.env.MESSAGE_STYLE === "uppercase") {
-//         response = response.message.toUpperCase();
-//     } res.json(response);
-// });
-
-
+app.use(function middleware(req, res, next) {
+    console.log(req.method + " " + req.path + " - " + req.ip);
+    next();
+});
 
 
 
